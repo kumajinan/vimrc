@@ -1,10 +1,10 @@
-scriptencoding utf-8
+:::::scriptencoding utf-8
 " vim:set ts=8 sts=2 sw=2 tw=0: (この行に関しては:help modelineを参照)
 "
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc) - Vim7用試作
 "
-" Last Change: 10-Nov-2014.
+" Last Change: 15-Nov-2014.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -62,10 +62,6 @@ if 1 && (!exists('g:no_gvimrc_example') || g:no_gvimrc_example == 0)
 endif
 
 "---------------------------------------------------------------------------
-" カラー設定:
-colorscheme jellybeans
-
-"---------------------------------------------------------------------------
 " フォント設定:
 "
 if has('win32')
@@ -89,9 +85,11 @@ endif
 " ウインドウに関する設定:
 "
 " ウインドウの幅
-set columns=80
 " ウインドウの高さ
-set lines=25
+if has("gui_running")
+  set lines=200 columns=200
+endif 
+
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
 " 画面を黒地に白にする (次行の先頭の " を削除すれば有効になる)
@@ -183,7 +181,7 @@ set nocompatible               " Be iMproved
 filetype off                   " Required!
 
 if has('vim_starting')
-  set runtimepath+=$VIM\bundle\neobundle.vim
+  set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
   call neobundle#end()
@@ -191,17 +189,31 @@ endif
 filetype off
 
 " インストールしたいプラグインをここに書く
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
+
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle "ctrlpvim/ctrlp.vim"
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'itchyny/lightline.vim'
 
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'tomasr/molokai'
+
 filetype plugin on
 filetype indent on
-
 
 "--------------------------------------------------------------------------
 " NERDTree
@@ -331,10 +343,22 @@ if !has('gui_running')
 endif
 
 "起動時にウィンドウを最大化
-au GUIEnter * simalt ~x
+“au GUIEnter * simalt ~x
 
 "カラースキーマの設定
-colorscheme jellybeans
+let scheme = 'jellybeans'
+augroup guicolorscheme
+  autocmd!
+  execute 'autocmd GUIEnter * colorscheme' scheme
+augroup END
+execute 'colorscheme' scheme
+
+"カラースキーマを設定
+“colorscheme molokai
+“syntax on
+“let g:molokai_original = 1
+“let g:rehash256 = 1
+“set background=dark
 
 "フォントの設定
 set guifont=Consolas:h10:cSHIFTJIS

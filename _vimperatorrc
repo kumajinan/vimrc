@@ -1,22 +1,22 @@
-"============================
+ï»¿"============================
 " General
 "============================
-" ƒuƒ‰ƒEƒUƒ^ƒCƒgƒ‹‚Ì•ÏX
-" Firefox ƒfƒtƒHƒ‹ƒg‚Í uMozilla - FirefoxvAvimperator‚ğ“ü‚ê‚é‚Æuvimperatorv
+" ãƒ–ãƒ©ã‚¦ã‚¶ã‚¿ã‚¤ãƒˆãƒ«ã®å¤‰æ›´
+" Firefox ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ ã€ŒMozilla - Firefoxã€ã€vimperatorã‚’å…¥ã‚Œã‚‹ã¨ã€Œvimperatorã€
 
-" commandƒ‚[ƒh‚ÅIMEƒIƒt
+" commandãƒ¢ãƒ¼ãƒ‰ã§IMEã‚ªãƒ•
 style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
 "============================
 " Key mapping
 "============================
-" googleŒŸõ‚ğè‘‚­‚·‚é
+" googleæ¤œç´¢ã‚’æ‰‹æ—©ãã™ã‚‹
 noremap s :open<Space>google<Space>
 noremap ,s :tabopen<Space>google<Space>
 
-" OS•ªŠò
-" d‚ğƒuƒ‰ƒEƒU•W€‚Ìuƒ^ƒu‚ğ•Â‚¶‚év‚Éƒ}ƒbƒsƒ“ƒO
-" vimperatorrc‚ÌƒŠƒ[ƒh
+" OSåˆ†å²
+" dã‚’ãƒ–ãƒ©ã‚¦ã‚¶æ¨™æº–ã®ã€Œã‚¿ãƒ–ã‚’é–‰ã˜ã‚‹ã€ã«ãƒãƒƒãƒ”ãƒ³ã‚°
+" vimperatorrcã®ãƒªãƒ­ãƒ¼ãƒ‰
 js<<EOM
 if(liberator.has("MacUnix")) {
   liberator.execute("map d <M-w>");
@@ -27,44 +27,44 @@ if(liberator.has("MacUnix")) {
 }
 EOM
 
-" ˆÚ“®•
+" ç§»å‹•å¹…
 noremap j 5j
 noremap k 5k
-" ƒ^ƒuˆÚ“®
+" ã‚¿ãƒ–ç§»å‹•
 nnoremap h <C-p>
 nnoremap l <C-n>
-" ƒ^ƒu‚ÌˆÊ’u•ÏX
+" ã‚¿ãƒ–ã®ä½ç½®å¤‰æ›´
 map <C-l> :tabmove! +1<CR>
 map <C-h> :tabmove! -1<CR>
-" undoˆê——‚©‚çŠJ‚­
+" undoä¸€è¦§ã‹ã‚‰é–‹ã
 nnoremap U :undo<Space>
 let g:hint_tombloo_key = 'r'
-" ƒuƒ‰ƒEƒUÄ‹N“®
+" ãƒ–ãƒ©ã‚¦ã‚¶å†èµ·å‹•
 nnoremap <C-r> :restart<CR>
 
-" vimperatorrc‚ğƒŠƒ[ƒh
-map <C-R> :mapc<CR>:cmapc<CR>:imapc<CR>:source .vimperatorrc<CR>
+" vimperatorrcã‚’ãƒªãƒ­ãƒ¼ãƒ‰
+map <C-R> :mapc<CR>:cmapc<CR>:imapc<CR>:source C:\Users\taniya_2<CR>
 
-" Visualƒ‚[ƒh‚ÅC-g‚Å‘I‘ğ‚µ‚Ä‚¢‚éƒeƒLƒXƒg‚ÅGoogleŒŸõ
+" Visualãƒ¢ãƒ¼ãƒ‰ã§C-gã§é¸æŠã—ã¦ã„ã‚‹ãƒ†ã‚­ã‚¹ãƒˆã§Googleæ¤œç´¢
 vmap <silent> <C-g> y<Esc><Esc>P
 
-" BS‚Å–ß‚é
+" BSã§æˆ»ã‚‹
 map <BS> <A-Left>
-" Shift+BS‚Åi‚Ş
+" Shift+BSã§é€²ã‚€
 map <S-BS> <A-RIGHT>
 
-"Shift+y‚Åƒ^ƒCƒgƒ‹+URL‚ğƒRƒs[
+"Shift+yã§ã‚¿ã‚¤ãƒˆãƒ«+URLã‚’ã‚³ãƒ”ãƒ¼
 nnoremap Y :js util.copyToClipboard(buffer.title + ' ' + buffer.URL)<CR>
 
 "============================
 " colorscheme
 "============================
-" ƒqƒ“ƒg‚ÌƒfƒUƒCƒ“
+" ãƒ’ãƒ³ãƒˆã®ãƒ‡ã‚¶ã‚¤ãƒ³
 hi Hint font-family: Arial; font-size: 20px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #33cccc;
 hi HintElem color: gray; background-color: #a1e4e6;
 hi HintActive color: black; background-color: #ff8700;
 
-" ƒGƒ‰[ƒƒbƒZ[ƒW‚ÌƒfƒUƒCƒ“
+" ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ãƒ‡ã‚¶ã‚¤ãƒ³
 hi ErrorMsg color:white; background-color: #ec6aa1;
 
 set hintchars=ifjklasdhguonmerwc
@@ -85,11 +85,6 @@ qmark t https://twitter.com/
 "============================
 map b :open about:mybookmarks<CR>
 
-"============================
-" slideshare
-"============================
-"noremap n :slideshare next<CR>
-
 
 "============================
 " feedSomeKeys.js
@@ -102,8 +97,18 @@ lazy fmaps -u='feedly\.com' j k n p o v gm ga gg gl / r m x s t l f b
 lazy fmaps -e=vkeydown -u='www\.tumblr\.com/' j k r t q p n L l<CR>
 lazy fmaps -u='www\.pixiv\.net/member_illust\.php\?mode=manga&illust_id=[0-9]+' j k
 
-" tweetdeck‚Å–³Œø‰»
-:ignorekeys add tweetdeck\.twitter\.com -except :,<C-n>,<C-p>
+" tweetdeckã§ç‰¹å®šã®ã‚­ãƒ¼ã§ç„¡åŠ¹åŒ–
+:ignorekeys add tweetdeck\.twitter\.com -except :,<C-n>,<C-p>,h,l,u
 
-"“Ç‚İ‚İŠ®—¹ƒƒbƒZ[ƒW(Šm”F—p)
-echo "vimperatorrc loaded."
+" google docsã§ã‚­ãƒ¼ã§ç„¡åŠ¹åŒ–
+:ignorekeys add docs\.google\.com
+
+
+"============================
+" slideshare, speakerdeck.com
+"============================
+:ignorekeys add www\.slideshare\.net -except :,<C-n>,<C-p>,h,l,d
+:ignorekeys add speakerdeck\.com -except :,<C-n>,<C-p>,h,l,d
+
+"èª­ã¿è¾¼ã¿å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸(ç¢ºèªç”¨)
+echo "vimperatorrc loaded. 111"
